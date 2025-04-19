@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestot de tareas</title>
+    <link rel="stylesheet" href="../Css/inicio.css">
+</head>
+
+<body>
+    <h1 id="titulo_app">Bienvenido a Gestor de Tareas</h1>
+    <div class="registro_contenedor">
+        <h2 id="crea_cuenta_titulo">Crea tu cuenta</h2>
+        <br />
+        <form id="registro_usuario">
+            <label for="alias_label">Username: </label>
+            <input type="text" name="alias" id="alias_id" required>
+            <br />
+            <label for="email_label">Email: </label>
+            <input type="text" name="email" id="email_id" required>
+            <br />
+            <label for="password_label">Password: </label>
+            <input type="password" name="password" id="password_id" required>
+            <br />
+            <div class="botones_registro_contenedor">
+                <input type="submit" class="btn_registro_aceptar" value="Registrarse">
+                <input type="reset" class="btn_registro_cancelar" value="Cancelar">
+            </div>
+            <br />
+            <p id="parrafo_ya_cuenta">Ya tienes cuenta? inicia sesion <a id="enlace_ya_cuenta" href="#">aqui</a></p>
+        </form>
+    </div>
+    <script type="module" src="../Js/registro.js"></script>
+</body>
+
+</html>
