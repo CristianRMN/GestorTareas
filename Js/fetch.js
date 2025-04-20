@@ -1,5 +1,4 @@
 
-
 export function fetchRegistroUsuario(data) {
     fetch('../Php/controller/TareaController.php', {
         method: 'POST',
@@ -20,7 +19,7 @@ export function fetchRegistroUsuario(data) {
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             }).then((result) => {
-                console.log("Nos redirigimos a login");
+                window.location.href = '../Html/login.html';
             })
         } else {
             Swal.fire({
@@ -32,5 +31,29 @@ export function fetchRegistroUsuario(data) {
         }
     })
     
+}
+
+export function fetchLoginUsuarios(dataLogin){
+
+    fetch('../Php/controller/TareaController.php', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            action: 'loguear_usuario',
+            datos: dataLogin
+        })
+    })
+    .then(Response => Response.json())
+    .then(data => {
+        if(data.success){
+            console.log("Usuario logueado correctamente");
+        }
+        else{
+            console.log("Fallo al loguear al usuario");
+        }
+    })
+
 }
 

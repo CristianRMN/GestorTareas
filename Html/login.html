@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestot de tareas</title>
+    <link rel="stylesheet" href="../Css/login.css">
+    <!-- Incluye el CSS de SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.8/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- Incluye el JS de SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.8/dist/sweetalert2.min.js"></script>
+
+</head>
+
+<body>
+    <h1 id="titulo_app_login">Bienvenido a Gestor de Tareas</h1>
+    <div class="login_contenedor">
+        <h2 id="logueate_titulo">Inicia sesion</h2>
+        <br />
+        <form id="login_usuario">
+            <label for="email_label">Email: </label>
+            <input type="text" name="email" id="email_id_login" required>
+            <br />
+            <label for="password_label">Password: </label>
+            <input type="password" name="password" id="password_id_login" required>
+            <br />
+            <div class="botones_login_contenedor">
+                <input type="submit" class="btn_login_aceptar" value="login">
+                <input type="reset" class="btn_login_cancelar" value="Cancel">
+            </div>
+            <br />
+            <p id="parrafo_no_cuenta">No tienes cuenta? Registrate <a id="enlace_ya_cuenta" href="../Html/inicio.html">aqui</a></p>
+        </form>
+    </div>
+    <script type="module" src="../Js/login.js"></script>
+</body>
+
+</html>
