@@ -15,8 +15,24 @@ if(isset($data['action'])){
             $password = $data['datos']['password'];
             
             $resultado = UsuariosRepository::insertarUsuario($alias, $email, $password);
-            $response['success'] = $resultado;
-            break;
+
+            if (is_array($resultado) && isset($resultado['error'])) {
+                echo json_encode([
+                    'success' => false,
+                    'error' => $resultado['error']
+                ]);
+            } elseif ($resultado === true) {
+                echo json_encode([
+                    'success' => true,
+                    'registro' => true
+                ]);
+            } else {
+                echo json_encode([
+                    'success' => false,
+                    'error' => 'otro'
+                ]);
+            }
+            exit;
         case 'loguear_usuario':
             $emailLogin = $data['datos']['email'];
             $passwordLogin = $data['datos']['password'];

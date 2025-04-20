@@ -23,7 +23,6 @@ class UsuariosRepository {
                     return true;
                 } else {
                     $errorInfo = $stmt->errorInfo();
-                    var_dump($errorInfo);
                     return false;
                 }
             } else {
@@ -31,7 +30,12 @@ class UsuariosRepository {
             }
 
         } catch (PDOException $e) {
-            var_dump($e->getMessage());
+            $errorCode = $e->errorInfo[1]; 
+            if ($errorCode == 1062) {
+                return ['success' => false, 'error' => 'duplicado'];
+            } else {
+                return ['success' => false, 'error' => 'otro'];
+            }
             return false;
         }
     }
