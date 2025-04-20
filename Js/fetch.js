@@ -46,12 +46,23 @@ export function fetchLoginUsuarios(dataLogin){
         })
     })
     .then(Response => Response.json())
-    .then(data => {
-        if(data.success){
-            console.log("Usuario logueado correctamente");
+    .then(dataLogin => {
+        if(dataLogin.success){
+            const userLogin = dataLogin.usuario;
+            Swal.fire({
+                title: 'Usuario logueado',
+                text: 'Inicio de sesion exitoso',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            });            
         }
         else{
-            console.log("Fallo al loguear al usuario");
+            Swal.fire({
+                title: 'Credenciales incorrectas',
+                text: 'El email o la contraseña son incorrectas, vuelve a intentarlo',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            }); 
         }
     })
 
