@@ -14,10 +14,23 @@ export function fetchRegistroUsuario(data) {
     .then(Response => Response.json())
     .then(data => {
         if (data.success) {
-            console.log("Datos insertados correctamente");
+            Swal.fire({
+                title: 'Usuario registrado',
+                text: 'Te has registrado con éxito en la web',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                console.log("Nos redirigimos a login");
+            })
         } else {
-            console.log("Error al insertar los datos");
+            Swal.fire({
+                title: 'Usuario no registrado',
+                text: 'Error al realizar el registro',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
         }
     })
     
 }
+
