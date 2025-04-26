@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(255, 230, 248);
+}
+
+.cabecera{
+    display: flex;
+    background-color: rgb(205, 152, 255);
+    gap: 0.5%;
+}
+#titulo_cabecera{
+    font-weight: normal;
+    margin-right: 75%;
+    padding-left: 2%;
+}
+
+.logo_nombre{
+    display: contents;
+}
+
+#imagen_logo_usuario{
+    padding-top: 0.5%;
+    width: 3.5%;
+    height: 3.5%;
+}
+
+#usuario_alias_logueado{
+    text-align: left;
+    font-weight: normal;
+
+}
+
+.lista_botones_ul{
+    list-style: none;
+    margin-top: 15%;
+    padding-right: 2%;
+    margin-right: 5%;
+}
+
+#boton_nueva_tarea{
+    width: 15%;
+    padding: 1.5%;
+    margin-bottom: 5%;
+    background-color: rgb(130, 255, 138);
+}
+
+#boton_gestion_tarea{
+    width: 15%;
+    padding: 1.5%;
+    background-color: aqua;
+}
+
+#boton_nueva_tarea:hover,
+#boton_gestion_tarea:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease; 
+}

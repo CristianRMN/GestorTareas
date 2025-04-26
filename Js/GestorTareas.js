@@ -1,7 +1,16 @@
 import { CheckUserAlias } from '../Js/fetch';
 
-function printAlias(){
-    console.log("Alias: ", CheckUserAlias());   
+async function printAlias(){
+    const nombreUsuario = document.getElementById("usuario_alias_logueado");
+    const alias = await CheckUserAlias();
+    console.log("Alias de fetch: ", alias);
+    if(alias){
+        nombreUsuario.textContent = alias;
+    }
+    else{
+        console.log("No se encontró al usuario");
+    }
 }
 
 printAlias();
+

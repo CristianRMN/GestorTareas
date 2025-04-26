@@ -74,16 +74,16 @@ export function fetchLoginUsuarios(dataLogin) {
 
 }
 
-export function CheckUserAlias() {
-
-    fetch('../Php/usuarioLogin/UsuarioSession.php')
+export async function CheckUserAlias() {
+    return fetch('../Php/usuarioLogin/UsuarioSession.php')
         .then(Response => Response.json())
         .then(data => {
             if (data.success) {
-                console.log("Usuario alias logueado: ", data.usuario.alias);
+                return data.usuario.alias;
             }
             else {
                 console.log("No se registro el session");
+                return null;
             }
         })
 

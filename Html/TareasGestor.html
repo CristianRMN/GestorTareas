@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/TareaGestor.css">
     <title>Gestor de tareas</title>
 </head>
-
 <body>
-   <p>Inicio de sesion exitoso</p>
+   <div class="cabecera">
+    <h2 id="titulo_cabecera">Taskly</h2>
+    <div class="logo_nombre">
+        <img src="../imagenes/userSession.png" id="imagen_logo_usuario">
+        <h3 id="usuario_alias_logueado">Nombre de usuario</h3>
+    </div>
+   </div>
+   <div class="lista_botones_tareas_contenedor">
+    <ul class="lista_botones_ul">
+        <li>
+            <button id="boton_nueva_tarea">Nueva tarea</button>
+        </li>
+        <li>
+            <button id="boton_gestion_tarea">Gestionar tareas</button>
+        </li>
+    </ul>
+   </div>
    <script type="module" src="../Js/GestorTareas.js"></script>
 </body>
 
