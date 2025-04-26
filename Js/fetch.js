@@ -1,6 +1,6 @@
 
 export function fetchRegistroUsuario(data) {
-    fetch('../Php/controller/TareaController.php', {
+    fetch('../Php/controller/LoginRegistroController.php', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
@@ -39,7 +39,7 @@ export function fetchRegistroUsuario(data) {
 
 export function fetchLoginUsuarios(dataLogin) {
 
-    fetch('../Php/controller/TareaController.php', {
+    fetch('../Php/controller/LoginRegistroController.php', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
@@ -58,6 +58,8 @@ export function fetchLoginUsuarios(dataLogin) {
                     text: 'Inicio de sesion exitoso',
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                    window.location.href = '../Html/TareasGestor.html';
                 });
             }
             else {
@@ -71,4 +73,20 @@ export function fetchLoginUsuarios(dataLogin) {
         })
 
 }
+
+export function CheckUserAlias() {
+
+    fetch('../Php/usuarioLogin/UsuarioSession.php')
+        .then(Response => Response.json())
+        .then(data => {
+            if (data.success) {
+                console.log("Usuario alias logueado: ", data.usuario.alias);
+            }
+            else {
+                console.log("No se registro el session");
+            }
+        })
+
+}
+
 

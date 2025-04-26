@@ -34,11 +34,16 @@ if(isset($data['action'])){
             }
             exit;
         case 'loguear_usuario':
+            session_start();
             $emailLogin = $data['datos']['email'];
             $passwordLogin = $data['datos']['password'];
             $resultado = UsuariosRepository::loguearUsuario($emailLogin, $passwordLogin);
             
             if($resultado){
+                $_SESSION['usuario'] = [
+                    'alias' => $resultado -> getAlias(),
+                    'email' => $resultado -> getEmail()
+                ];
                 echo json_encode([
                     'success' => true,
                     'usuario' => $resultado
