@@ -9,10 +9,10 @@ class Tareas implements JsonSerializable{
     private $id_usuario;
 
     public function __construct($nombre, $descripcion, $completada, $id_usuario){
-        this -> nombre = $nombre;
-        this -> descripcion = $descripcion;
-        this -> completada = $completada;
-        this -> id_usuario = $id_usuario;
+        $this -> nombre = $nombre;
+        $this -> descripcion = $descripcion;
+        $this -> completada = $completada;
+        $this -> id_usuario = $id_usuario;
     }
 
     public function setID($id){
