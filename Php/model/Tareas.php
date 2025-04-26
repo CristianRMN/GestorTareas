@@ -54,6 +54,16 @@ class Tareas implements JsonSerializable{
     public function getId_usuario(){
         return $this -> id_usuario;
     }
+
+    public function jsonSerialize() : mixed{
+        return [
+            'id' => $this -> id,
+            'nombre' => $this -> nombre,
+            'descripcion' => $this -> descripcion,
+            'completada' => $this -> completada,
+            'id_usuario' => $this -> id_usuario
+        ];
+    }
 }
 
 ?>
