@@ -32,12 +32,12 @@ switch($data['action']){
         }
         exit;
         case 'selectTareas':
-            $id_usuario = $data['datos']['id_usuario'];
+            $id_usuario = $data['datos']['id'];
             $resultado = TareasRepository::selectTareasUser($id_usuario);
             if($resultado){
                 echo json_encode([
                     'success' => true,
-                    'usuario' => $resultado
+                    'tareas' => $resultado
                 ]);
             }
             else{
@@ -51,5 +51,5 @@ switch($data['action']){
 
 }
 }
-
+echo json_encode($response);
 ?>

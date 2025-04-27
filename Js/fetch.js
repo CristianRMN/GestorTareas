@@ -90,7 +90,7 @@ export async function CheckUserAlias() {
 }
 
 export async function fetchtareasUsuarios(data) {
-    return fetch('../Php/controller/GestorTareasController.php', {
+    return fetch('../Php/controller/GestorTareaController.php', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json'
@@ -103,7 +103,7 @@ export async function fetchtareasUsuarios(data) {
         .then(Response => Response.json())
         .then(data => {
             if (data.success) {
-                const tareasUser = data.Tareas;
+                const tareasUser = data.tareas;
                 return tareasUser;
             }
             else {

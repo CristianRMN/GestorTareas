@@ -61,3 +61,5 @@ if(isset($data['action'])){
 }
 
 echo json_encode($response);
+
+?>
