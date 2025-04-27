@@ -13,8 +13,17 @@ body{
     padding-left: 2%;
 }
 
+
 .logo_nombre{
     display: contents;
+}
+
+.body_tareas {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35%;
+    padding: 6%;
 }
 
 #imagen_logo_usuario{
@@ -29,23 +38,41 @@ body{
 
 }
 
-.lista_botones_ul{
-    list-style: none;
-    margin-top: 15%;
-    padding-right: 2%;
-    margin-right: 5%;
+.lista_botones_tareas_contenedor {
+    display: flex;
+    flex-direction: column; 
 }
 
+.contenedor_no_tareas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black; 
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 10%; 
+    border-radius: 10px; 
+}
+
+
+.lista_botones_ul {
+    list-style: none;
+    padding-top: 4%;
+    margin-bottom: 10%;
+}
+
+
 #boton_nueva_tarea{
-    width: 15%;
-    padding: 1.5%;
-    margin-bottom: 5%;
+    width: 160%;
+    height: 50%;
+    padding: 25%;
+    margin-bottom: 40%;
     background-color: rgb(130, 255, 138);
 }
 
 #boton_gestion_tarea{
-    width: 15%;
-    padding: 1.5%;
+    width: 160%;
+    height: 50%;
+    padding: 25%;
     background-color: aqua;
 }
 
