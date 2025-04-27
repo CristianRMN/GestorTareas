@@ -40,6 +40,34 @@ class TareasRepository{
         }
 
     }
+
+    public static function selectTareasUser($id_usuario){
+        try{
+            $conexion = ConectionDB::getInstance() -> getConnection();
+            if($conexion){
+                $sql = "SELECT * FROM tareas where id_usuario = :id_usuario";
+                $stmt = $conexion -> prepare($sql);
+                $executeResult = $stmt -> execute([
+                    ':id_usuario' => $id_usuario
+                ]);
+                $fila = $stmt -> fetch(PDO::FETCH_ASSOC);
+                if($fila){
+                    $tarea = new Tareas($fila['nombre'], $fila['descripcion'], $fila['completada'], $fila['id_usuario']);
+                    return $tarea;
+                }
+                else{
+                    return null;
+                }
+            }
+            else{
+                return false;
+            } 
+        }catch(PDOException $e){
+            var_dump($e->getMessage());
+            return false;
+        }
+    }
+
 }
 
 
