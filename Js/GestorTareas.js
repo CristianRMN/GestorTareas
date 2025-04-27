@@ -11,4 +11,8 @@ async function printAlias() {
     }
 }
 
+function getTareas(data){
+    
+}
+
 printAlias();

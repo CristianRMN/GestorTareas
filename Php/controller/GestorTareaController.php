@@ -52,33 +52,4 @@ switch($data['action']){
 }
 }
 
-/*
-<?php
-
-            $resultado = UsuariosRepository::loguearUsuario($emailLogin, $passwordLogin);
-            
-            if($resultado){
-                $_SESSION['usuario'] = [
-                    'id' => $resultado -> getId(),
-                    'alias' => $resultado -> getAlias(),
-                    'email' => $resultado -> getEmail()
-                ];
-                echo json_encode([
-                    'success' => true,
-                    'usuario' => $resultado
-                ]);
-            }
-            else{
-                echo json_encode([
-                    'success' => false,
-                    'mensaje' => 'Credenciales incorrectas'
-                ]);
-            }
-            exit;
-    }
-}
-
-echo json_encode($response);
-
-*/
 ?>
