@@ -41,6 +41,7 @@ if(isset($data['action'])){
             
             if($resultado){
                 $_SESSION['usuario'] = [
+                    'id' => $resultado -> getId(),
                     'alias' => $resultado -> getAlias(),
                     'email' => $resultado -> getEmail()
                 ];

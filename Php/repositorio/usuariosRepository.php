@@ -53,7 +53,7 @@ class UsuariosRepository {
                 ]);
                 $fila = $stmt -> fetch(PDO::FETCH_ASSOC);
                 if($fila){
-                    $usuario = new Usuarios($fila['alias'], $fila['email'], $fila['password']);
+                    $usuario = new Usuarios($fila['id'], $fila['alias'], $fila['email'], $fila['password']);
                     return $usuario;
                 }
                 else{

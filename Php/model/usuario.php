@@ -7,7 +7,8 @@ class Usuarios implements JsonSerializable {
     private $email;
     private $password;
 
-    public function __construct($alias, $email, $password){
+    public function __construct($id, $alias, $email, $password){
+        $this -> id = $id;
         $this -> alias = $alias;
         $this -> email = $email;
         $this -> password = $password;

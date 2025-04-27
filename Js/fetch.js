@@ -79,7 +79,7 @@ export async function CheckUserAlias() {
         .then(Response => Response.json())
         .then(data => {
             if (data.success) {
-                return data.usuario.alias;
+                return data.usuario;
             }
             else {
                 console.log("No se registro el session");
