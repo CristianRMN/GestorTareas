@@ -1,4 +1,4 @@
-import { CheckUserAlias, fetchtareasUsuarios} from '../Js/fetch';
+import { CheckUserAlias, fetchtareasUsuarios, fetchInsertTareausuario} from '../Js/fetch';
 
 async function printAlias() {
     const nombreUsuario = document.getElementById("usuario_alias_logueado");
@@ -53,6 +53,11 @@ function checkEmptyDescripcionTarea(){
     return "";
 }
 
+function clearCampos(){
+    document.getElementById("descripcion_id_nueva_tarea").value = "";
+    document.getElementById("nombre_id_nueva_tarea").value = "";
+}
+
 async function enviarTarea(){
     const user = await CheckUserAlias();
     document.querySelector(".btn_nueva_tarea_aceptar").addEventListener("click", (e) => {
@@ -65,8 +70,12 @@ async function enviarTarea(){
             'nombre': nombre,
             'descripcion': descripcion,
             'completada': completada,
-            'id_user': id_user
+            'id_usuario': id_user
         };
+         const result = fetchInsertTareausuario(data);
+         if(result){
+            clearCampos();
+         }
     });
 }
 

@@ -113,4 +113,44 @@ export async function fetchtareasUsuarios(data) {
 
 }
 
+export async function fetchInsertTareausuario(data) {
+    const response = await fetch('../Php/controller/GestorTareaController.php', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            action: 'registro_tareas',
+            datos: data
+        })
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+        Swal.fire({
+            title: 'Tarea registrada',
+            text: 'La tarea se ha guardado correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        });
+    } else {
+        let mensaje = 'Error al registrar la tarea';
+        if (result.error === 'duplicado') {
+            mensaje = 'La tarea ya se ha registrado';
+        }
+        Swal.fire({
+            title: 'Tarea no registrada',
+            text: mensaje,
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
+    }
+
+    return result;
+}
+
+
+
+
 
