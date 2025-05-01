@@ -22,7 +22,7 @@ body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 35%;
+    gap: 23%;
     padding: 6%;
 }
 
@@ -41,6 +41,7 @@ body{
 .lista_botones_tareas_contenedor {
     display: flex;
     flex-direction: column; 
+    margin-bottom: 40%;
 }
 
 .contenedor_no_tareas {
@@ -49,8 +50,11 @@ body{
     justify-content: center;
     border: 2px solid black; 
     box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
-    padding: 10%; 
-    border-radius: 10px; 
+    border-radius: 10px;
+    width: 60%;
+    padding-top: 19%;
+    padding-bottom: 19%; 
+    margin-bottom: 12%;
 }
 
 
