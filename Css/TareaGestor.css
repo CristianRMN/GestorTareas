@@ -86,3 +86,64 @@ body{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     transition: all 0.3s ease; 
 }
+
+.oculto{
+    display: none;
+}
+
+.contenedor_nueva_tarea{
+    margin-left: 10%;
+}
+
+#titulo_nueva_tarea{
+    margin-left: 30%;
+    font-weight: normal;
+}
+
+#form_nueva_tarea{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+    border: 2px solid rgb(0, 0, 0); 
+    box-shadow: inset 0px 0px 30px rgba(183, 0, 255, 0.5);
+    border-radius: 10px;
+    margin-bottom: 200%;
+    margin-left: 30%;
+    padding: 16%;
+    width: 120%;
+}
+
+#descripcion_id_nueva_tarea{
+    resize: none;
+}
+
+.botones_nueva_tarea_contenedor{
+    margin-left: 13%;
+}
+
+.btn_nueva_tarea_aceptar{
+    margin-right: 12%;
+    background-color: #00bfff;
+    color: white;
+    border-radius: 10px;
+    padding: 5%;
+}
+
+.btn_nueva_tarea_aceptar:hover{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); 
+}
+
+.btn_nueva_tarea_cancelar{
+    background-color: #ff2600;
+    color: white;
+    border-radius: 10px;
+    padding: 5%;
+}
+
+.btn_nueva_tarea_cancelar:hover{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); 
+}
+
+

@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/TareaGestor.css">
     <title>Gestor de tareas</title>
 </head>
+
 <body>
-   <div class="cabecera">
-    <h2 id="titulo_cabecera">Taskly</h2>
-    <div class="logo_nombre">
-        <img src="../imagenes/userSession.png" id="imagen_logo_usuario">
-        <h3 id="usuario_alias_logueado">Nombre de usuario</h3>
+    <div class="cabecera">
+        <h2 id="titulo_cabecera">Taskly</h2>
+        <div class="logo_nombre">
+            <img src="../imagenes/userSession.png" id="imagen_logo_usuario">
+            <h3 id="usuario_alias_logueado">Nombre de usuario</h3>
+        </div>
     </div>
-   </div>
-   <div class="body_tareas">
+    <div class="body_tareas">
         <div class="lista_botones_tareas_contenedor">
             <ul class="lista_botones_ul">
                 <li>
@@ -28,10 +30,25 @@
         <div class="contenedor_no_tareas">
             <h2 id="no_tareas_h2"> No hay tareas cargadas</h2>
         </div>
+        <div class="contenedor_nueva_tarea oculto">
+            <h3 id="titulo_nueva_tarea">Nueva tarea</h3>
+            <form id="form_nueva_tarea">
+                <label for="nombre_label">Nombre: </label>
+                <input type="text" name="nombre" id="nombre_id_nueva_tarea" required>
+                <br />
+                <label for="descripcion_id_nueva_tarea">Descripción:</label>
+                <textarea name="descripcion" id="descripcion_id_nueva_tarea" rows="5"></textarea>
+                <br />
+                <div class="botones_nueva_tarea_contenedor">
+                    <input type="submit" class="btn_nueva_tarea_aceptar" value="Aceptar">
+                    <input type="reset" class="btn_nueva_tarea_cancelar" value="Cancel">
+                </div>
+            </form>
+        </div>
 
-   </div>
-  
-   <script type="module" src="../Js/GestorTareas.js"></script>
+    </div>
+
+    <script type="module" src="../Js/GestorTareas.js"></script>
 </body>
 
 </html>
