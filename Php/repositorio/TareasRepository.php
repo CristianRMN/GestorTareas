@@ -41,34 +41,34 @@ class TareasRepository{
 
     }
 
-    public static function selectTareasUser($id_usuario){
-        try{
-            $conexion = ConectionDB::getInstance() -> getConnection();
-            if($conexion){
-                $sql = "SELECT * FROM tareas where id_usuario = :id_usuario";
-                $stmt = $conexion -> prepare($sql);
-                $executeResult = $stmt -> execute([
-                    ':id_usuario' => $id_usuario
-                ]);
-                $fila = $stmt -> fetch(PDO::FETCH_ASSOC);
-                if($fila){
-                    $tarea = new Tareas($fila['nombre'], $fila['descripcion'], $fila['completada'], $fila['id_usuario']);
-                    return $tarea;
+    public static function selectTareasUser($id_usuario) {
+        try {
+            $conexion = ConectionDB::getInstance()->getConnection();
+            if ($conexion) {
+                $sql = "SELECT * FROM tareas WHERE id_usuario = :id_usuario";
+                $stmt = $conexion->prepare($sql);
+                $stmt->execute([':id_usuario' => $id_usuario]);
+    
+                $filas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+                if ($filas) {
+                    $tareas = [];
+                    foreach ($filas as $fila) {
+                        $tareas[] = new Tareas($fila['nombre'], $fila['descripcion'], $fila['completada'], $fila['id_usuario']);
+                    }
+                    return $tareas;
+                } else {
+                    return []; 
                 }
-                else{
-                    return null;
-                }
-            }
-            else{
+            } else {
                 return false;
-            } 
-        }catch(PDOException $e){
+            }
+        } catch (PDOException $e) {
             var_dump($e->getMessage());
             return false;
         }
     }
+    
 
 }
-
-
 ?>

@@ -8,9 +8,7 @@ async function printAlias() {
     if (user && user.alias) {
         nombreUsuario.textContent = user.alias;
         
-        const tareas = await getTareas(user); 
-        console.log("Tareas obtenidas:", tareas);
-        
+        const tareas = await getTareas(user);         
         if (tareas) { 
             console.log("Hay tareas");
         } else {
@@ -22,7 +20,7 @@ async function printAlias() {
     }
 }
 
-async function getTareas(data){
+export async function getTareas(data){
     const tareas = await fetchtareasUsuarios(data);
     console.log("Tareas: ", tareas);
     if(tareas){
