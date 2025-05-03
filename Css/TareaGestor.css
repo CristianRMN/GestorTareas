@@ -164,4 +164,14 @@ body{
     gap: 10%;
 }
 
+#titulo_lista_tareas_completadas{
+    text-align: center;
+}
+
+.lista_tareas_completadas{
+    display: flex;
+    list-style: none;
+    gap: 10%;
+}
+
 
