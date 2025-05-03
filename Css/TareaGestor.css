@@ -88,7 +88,7 @@ body{
 }
 
 .oculto{
-    display: none;
+    display: none !important;
 }
 
 .contenedor_nueva_tarea{
@@ -144,6 +144,24 @@ body{
 .btn_nueva_tarea_cancelar:hover{
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px); 
+}
+
+.lista_tareas_no_completadas_contenedor{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+    border: 2px solid rgb(0, 0, 0); 
+    box-shadow: inset 0px 0px 30px rgba(183, 0, 255, 0.5);
+    border-radius: 10px;
+    margin-bottom: 40%;
+    margin-left: 13%;
+}
+
+
+.lista_tareas_no_completadas{
+    display: flex;
+    list-style: none;
+    gap: 10%;
 }
 
 

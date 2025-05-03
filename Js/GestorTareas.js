@@ -10,9 +10,9 @@ async function printAlias() {
         
         const tareas = await getTareas(user);         
         if (tareas) { 
-            console.log("Hay tareas");
+            startTareas();
         } else {
-            console.log("No hay tareas");
+            hideTareas();
         }
 
     } else {
@@ -28,10 +28,28 @@ export async function getTareas(data){
     }
 }
 
+export function startTareas(){
+    document.querySelector(".lista_tareas_no_completadas_contenedor").classList.remove("oculto");
+    document.querySelector(".contenedor_nueva_tarea").classList.add("oculto");
+    document.querySelector(".contenedor_no_tareas").classList.add("oculto");
+}
+
+export function hideTareas(){
+    document.querySelector(".lista_tareas_no_completadas_contenedor").classList.add("oculto");
+    document.querySelector(".contenedor_nueva_tarea").classList.add("oculto");
+    document.querySelector(".contenedor_no_tareas").classList.remove("oculto");
+}
+
+function showNewTarea(){
+    document.querySelector(".lista_tareas_no_completadas_contenedor").classList.add("oculto");
+    document.querySelector(".contenedor_nueva_tarea").classList.remove("oculto");
+    document.querySelector(".contenedor_no_tareas").classList.add("oculto");
+}
+
+
 function clickBotonNuevaTarea(){
     document.getElementById("boton_nueva_tarea").addEventListener("click", () => {
-        document.querySelector(".contenedor_no_tareas").classList.add("oculto");
-        document.querySelector(".contenedor_nueva_tarea").classList.remove("oculto");
+        showNewTarea();
     });
 }
 
@@ -77,6 +95,27 @@ async function enviarTarea(){
     });
 }
 
+async function cargaTarea(){
+    const userLog = await CheckUserAlias();
+    if(userLog && userLog.alias){
+        let tareasuser = await getTareas(userLog);
+        document.getElementById("boton_gestion_tarea").addEventListener("click", () => {
+            if(tareasuser){
+                startTareas();
+            }
+            else{
+                hideTareas();
+            }
+        });
+    }
+    
+}
+
+
+
+
+
 printAlias();
 clickBotonNuevaTarea();
 enviarTarea();
+cargaTarea();
