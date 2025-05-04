@@ -10,6 +10,7 @@ async function printAlias() {
         
         const tareas = await getTareas(user);         
         if (tareas) { 
+            rellenartareas(tareas);
             startTareas();
         } else {
             hideTareas();
@@ -102,6 +103,7 @@ async function cargaTarea(){
         document.getElementById("boton_gestion_tarea").addEventListener("click", () => {
             if(tareasuser){
                 startTareas();
+                rellenartareas(tareasuser);
             }
             else{
                 hideTareas();
@@ -109,6 +111,22 @@ async function cargaTarea(){
         });
     }
     
+}
+
+function rellenartareas(tareas){
+    const elemento = document.querySelector(".lista_tareas_no_completadas");
+    elemento.innerHTML = "";
+    tareas.forEach((tarea, index) =>{
+        const li = document.createElement("li");
+        li.innerHTML = `
+        <label><strong>Nombre: </strong>${tarea.nombre}</label></br>
+        <label><strong>Descripcion: </strong>${tarea.descripcion}</label></br>
+        <label><strong>Completada:</strong></label>
+        <input type="checkbox" ${tarea.completada == 1 ? 'checked' : ''} id="completada_${index}"><br>
+        <button id="actualizar_${index}">Actualizar tarea</button>
+        `;
+        elemento.appendChild(li);
+    });
 }
 
 
