@@ -136,10 +136,10 @@ function disableButtonIfCompletada(index){
     const buttonActu = document.getElementById(`actualizar_${index}`);
 
     if(completadaCheck.checked){
-        buttonActu.disabled = true;
+        buttonActu.disabled = false;
     }
     else{
-        buttonActu.disabled = false;
+        buttonActu.disabled = true;
     }
 
     completadaCheck.addEventListener("change", () => {
