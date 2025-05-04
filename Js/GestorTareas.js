@@ -118,16 +118,36 @@ function rellenartareas(tareas){
     elemento.innerHTML = "";
     tareas.forEach((tarea, index) =>{
         const li = document.createElement("li");
+        li.id = `id_tarea_${index}`;
         li.innerHTML = `
         <label><strong>Nombre: </strong>${tarea.nombre}</label></br>
         <label><strong>Descripcion: </strong>${tarea.descripcion}</label></br>
         <label><strong>Completada:</strong></label>
         <input type="checkbox" ${tarea.completada == 1 ? 'checked' : ''} id="completada_${index}"><br>
-        <button id="actualizar_${index}">Actualizar tarea</button>
+        <button id="actualizar_${index}" disabled>Actualizar tarea</button>
         `;
         elemento.appendChild(li);
+        disableButtonIfCompletada(index);
     });
 }
+
+function disableButtonIfCompletada(index){
+    const completadaCheck = document.getElementById(`completada_${index}`);
+    const buttonActu = document.getElementById(`actualizar_${index}`);
+
+    if(completadaCheck.checked){
+        buttonActu.disabled = true;
+    }
+    else{
+        buttonActu.disabled = false;
+    }
+
+    completadaCheck.addEventListener("change", () => {
+        buttonActu.disabled = !completadaCheck.checked;
+    });
+}
+
+
 
 
 
