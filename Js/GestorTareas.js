@@ -135,6 +135,13 @@ function disableButtonIfCompletada(index){
     const completadaCheck = document.getElementById(`completada_${index}`);
     const buttonActu = document.getElementById(`actualizar_${index}`);
 
+    const datos = {
+        'completadaButton':completadaCheck,
+        'buttonActu':buttonActu
+    };
+
+    actualizarTarea(datos);
+    
     if(completadaCheck.checked){
         buttonActu.disabled = false;
     }
@@ -144,6 +151,12 @@ function disableButtonIfCompletada(index){
 
     completadaCheck.addEventListener("change", () => {
         buttonActu.disabled = !completadaCheck.checked;
+    });
+}
+
+function actualizarTarea(datos){
+    datos.buttonActu.addEventListener("click", () =>{
+        console.log("has hecho click en actualizar en el boton del id: ", datos.buttonActu.id);
     });
 }
 
