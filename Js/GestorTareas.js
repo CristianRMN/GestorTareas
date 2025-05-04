@@ -120,7 +120,7 @@ function rellenartareas(tareas){
         const li = document.createElement("li");
         li.id = `id_tarea_${index}`;
         li.innerHTML = `
-        <label><strong>Nombre: </strong>${tarea.nombre}</label></br>
+        <label id="label_nombre_tarea_${index}"><strong>Nombre: </strong>${tarea.nombre}</label></br>
         <label><strong>Descripcion: </strong>${tarea.descripcion}</label></br>
         <label><strong>Completada:</strong></label>
         <input type="checkbox" ${tarea.completada == 1 ? 'checked' : ''} id="completada_${index}"><br>
@@ -132,10 +132,12 @@ function rellenartareas(tareas){
 }
 
 function disableButtonIfCompletada(index){
+    const label_tarea = document.getElementById(`label_nombre_tarea_${index}`);
     const completadaCheck = document.getElementById(`completada_${index}`);
     const buttonActu = document.getElementById(`actualizar_${index}`);
 
     const datos = {
+        'label_tarea':label_tarea,
         'completadaButton':completadaCheck,
         'buttonActu':buttonActu
     };
@@ -155,9 +157,22 @@ function disableButtonIfCompletada(index){
 }
 
 function actualizarTarea(datos){
+    let nombreTarea = divideLabel(datos);
     datos.buttonActu.addEventListener("click", () =>{
-        console.log("has hecho click en actualizar en el boton del id: ", datos.buttonActu.id);
+        let numeroCompletada = getNumberCompletada(datos);
+        console.log(nombreTarea, numeroCompletada);
     });
+}
+
+function divideLabel(datos){
+    const label = datos.label_tarea.textContent;
+    let arrayNombre = label.split("Nombre: ");
+    return arrayNombre[1];
+}
+
+function getNumberCompletada(datos){
+    let actu = datos.completadaButton;
+    return actu.checked ? 1 : 0;
 }
 
 
